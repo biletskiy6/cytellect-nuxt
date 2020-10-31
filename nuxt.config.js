@@ -1,5 +1,6 @@
 export default {
-  mode: 'universal',
+  components: true,
+  ssr: false,
   /*
    ** Headers of the page
    */
@@ -23,7 +24,7 @@ export default {
   /*
    ** Global CSS
    */
-  css: ["@/theme/index.scss"],
+  css: ['@/theme/index.sass'],
   /*
    ** Plugins to load before mounting the App
    */

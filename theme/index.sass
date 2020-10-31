@@ -1,0 +1,121 @@
+@import "variables.sass"
+@import "smart-grid.sass"
++reset()
+::placeholder
+  color: #666
+
+::selection
+  background-color: $accent
+  color: #fff
+
+
+.container
+  +wrapper()
+html, body
+  height: 100%
+
+html
+  box-sizing: border-box
+  *, *:before, *:after
+    box-sizing: inherit
+
+body
+  font-size: 16px
+  min-width: 320px
+  position: relative
+  line-height: 1.65
+  font-family: $default-font
+  overflow-x: hidden
+  background-color: $bg
+
+
+.title
+  color: #fff
+  font-size: 32px
+
+.top-line
+  padding: 22px 0
+  background-color: $grey
+  border-bottom: 1px solid $accent
+  border-top: 1px solid $accent
+.logo
+  text-decoration: none
+  color: $accent
+  text-transform: uppercase
+
+
+.projects
+  +row-flex()
+  &__item
+    +col()
+    +size(4)
+    margin-bottom: 40px
+
+.project
+  display: flex
+  padding: 15px 30px
+  background-color: $card-color
+  color: #fff
+  transform: translateY(0)
+  transition: transform .25s ease
+  &__meta
+    flex: none
+    margin-right: 15px
+  &__image
+    width: 40px
+    height: 40px
+    object-fit: cover
+    border-radius: 50%
+  &__header
+    color: #fff
+    font-weight: 600
+    margin-bottom: 20px
+  &__text
+    font-size: 12px
+    line-height: 1
+    color: #a4a4a4
+  &__bottom
+    display: flex
+    justify-content: space-between
+  &:hover
+    transform: translateY(-5px)
+    transition: transform .25s ease
+.author
+  display: flex
+  font-size: 12px
+  &__image
+    width: 20px
+    height: 20px
+    object-fit: cover
+    border-radius: 50%
+  &__about
+    display: flex
+.participants
+  display: flex
+  &__image
+    width: 15px
+    height: 15px
+    object-fit: cover
+    border-radius: 50%
+
+
+
+.single
+  &-container
+    +row-flex()
+  &-left
+    display: flex
+    +col()
+    +size(8)
+  &-right
+    +col()
+    +size(4)
+
+
+
+.account-info
+  &__header
+    color: #fff
+    font-size: 72px
+.account-notifications
+  color: #fff
