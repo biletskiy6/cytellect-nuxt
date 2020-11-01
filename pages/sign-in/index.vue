@@ -3,20 +3,6 @@
     <div class="signup-container">
       <form class="auth-form" action="#" @submit.prevent="handleSubmit">
         <div class="auth-form__field">
-          <label for="email" class="auth-form__label">Email</label>
-          <input
-            id="email"
-            v-model="email"
-            name="email"
-            type="text"
-            class="auth-form__input"
-          />
-          <span class="border"></span>
-          <p v-if="$v.email.$dirty && $v.email.$error" class="error-message">
-            The field is required and must be an email
-          </p>
-        </div>
-        <div class="auth-form__field">
           <label for="login" class="auth-form__label">Login</label>
           <input
             id="login"
@@ -27,7 +13,7 @@
           />
           <span class="border"></span>
           <p v-if="$v.login.$dirty && $v.login.$error" class="error-message">
-            The field is required
+            Field is required
           </p>
         </div>
 
@@ -50,7 +36,7 @@
           </p>
         </div>
         <div class="auth-form__confirm">
-          <button class="button" type="submit">Sign Up</button>
+          <button class="button" type="submit">Sign In</button>
           <button class="button" @click="handleCancelClick">Cancel</button>
         </div>
       </form>
@@ -59,12 +45,11 @@
 </template>
 
 <script>
-import { required, email, minLength } from 'vuelidate/lib/validators'
+import { required, minLength } from 'vuelidate/lib/validators'
 export default {
   name: 'Index',
   data() {
     return {
-      email: '',
       login: '',
       password: ''
     }
@@ -88,10 +73,6 @@ export default {
     }
   },
   validations: {
-    email: {
-      required,
-      isEmail: email
-    },
     login: {
       required
     },

@@ -31,6 +31,45 @@ body
     background-color: $bg
     font-family: $default-font
 
+
+#overlay-1
+  display: flex
+  align-items: center
+  justify-content: center
+  position: fixed
+  width: 100%
+  height: 100%
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  background-color: #fff
+  z-index: 1001
+  .loader
+    display: flex
+    align-items: center
+    justify-content: center
+    span
+      background-color: $accent
+      border-radius: 50%
+      margin: 5rem 0.5rem
+      animation: bouncingLoader 0.6s infinite alternate
+      &:nth-child(2)
+        animation-delay: 0.2s
+      &:nth-child(3)
+        animation-delay: 0.4s
+@keyframes bouncingLoader
+  0%
+    width: 0.1rem
+    height: 0.1rem
+    opacity: 1
+    transform: translate3d(0, 0, 0)
+  100%
+    width: 1rem
+    height: 1rem
+    opacity: 0.6
+    transform: translate3d(0, -1rem, 0)
+
 .page-enter-active, .page-leave-active
   transition-duration: 0.3s
   transition-property: opacity
@@ -57,6 +96,10 @@ body
 .top-line
   padding: 22px 0
   background-color: $grey
+  .logo
+    text-transform: uppercase
+    font-weight: 700
+    letter-spacing: 0.2px
 .logo
   text-decoration: none
   display: flex
@@ -154,8 +197,32 @@ body
   .projects
     +row-flex()
     .project
+      position: relative
       +col()
       +size(4)
+      transform: translateY(0)
+      transition: all .35s ease
+      &::before
+        position: absolute
+        content: ''
+        background-color: $accent
+        width: 0
+        top: 0
+        left: 50%
+        transform: translateX(-50%)
+        transition: all .35s ease
+        height: 1px
+      &:hover
+        transform: translateY(-4px)
+        transition: all .35s ease
+        cursor: pointer
+        &::before
+          width: 100%
+          transition: all .35s ease
+
+
+
+
 .projects
   &__item
     margin-bottom: 40px

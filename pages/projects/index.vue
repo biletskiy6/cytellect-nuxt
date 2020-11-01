@@ -22,7 +22,6 @@
             :warning-icon="index === 0"
             :check-icon="index === 1"
             :question-icon="index === 2"
-            @click.native="handleCardClick"
           />
         </div>
       </div>

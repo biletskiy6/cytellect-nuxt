@@ -6,7 +6,7 @@
         <AppNavigation />
 
         <div class="auth-buttons">
-          <nuxt-link class="auth-link auth-link--login" to="/"
+          <nuxt-link class="auth-link auth-link--login" to="/sign-in"
             >Sign In</nuxt-link
           >
           <nuxt-link class="auth-link auth-link--register button" to="/sign-up"

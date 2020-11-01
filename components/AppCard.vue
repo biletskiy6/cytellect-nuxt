@@ -67,7 +67,7 @@
               />
             </li>
           </ul>
-          <button class="project__button">
+          <button class="project__button" @click.stop="handleClick">
             <svg-icon name="plus-icon" />
           </button>
         </div>
@@ -98,6 +98,9 @@ export default {
     }
   },
   methods: {
+    handleClick() {
+      console.log('clicked')
+    },
     truncate(source, size) {
       return source.length > size ? source.slice(0, size - 1) + '…' : source
     }

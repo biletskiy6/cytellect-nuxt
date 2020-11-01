@@ -2,7 +2,7 @@
   <div class="top-line">
     <div class="container">
       <div class="top-line-wrapper">
-        <nuxt-link to="/" class="logo">Cytellect</nuxt-link>
+        <nuxt-link to="/account" class="logo">Cytellect</nuxt-link>
       </div>
     </div>
   </div>
