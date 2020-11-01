@@ -6,7 +6,7 @@ const settings = {
   offset: '30px',
   mobileFirst: false,
   container: {
-    maxWidth: '800px',
+    maxWidth: '1150px',
     fields: '20px'
   },
   breakPoints: {

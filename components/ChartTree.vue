@@ -1,5 +1,5 @@
 <template>
-  <div id="chartdiv" ref="chartdiv" class="hello"></div>
+  <div id="chartdiv" ref="chartdiv" class="project-chart"></div>
 </template>
 
 <script>
@@ -19,7 +19,10 @@ export default {
       'chartdiv',
       am4plugins_forceDirected.ForceDirectedTree
     )
-    chart.legend = new am4charts.Legend()
+    // chart.legend = new am4charts.Legend()
+    // chart.legend.markers.template.disabled = true
+    // chart.legend.labels.template.propertyFields.fill = 'red'
+    // chart.legend.labels.template.propertyFields.stroke = 'red'
 
     const networkSeries = chart.series.push(
       new am4plugins_forceDirected.ForceDirectedSeries()
@@ -34,28 +37,75 @@ export default {
         y: am4core.percent(50),
         children: [
           {
-            name: 'Task 1',
+            name: '#1',
             value: 1,
             children: [
               {
-                name: 'Subtask 1',
-                circle: {
-                  disabled: true
-                }
+                name: 'Task 1',
+                type: 'image',
+                image:
+                  'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSpjK_9TLSIcg9qPaw5ZDrJT3c8lXTxtp8ESg&usqp=CAU'
+              },
+              { name: 'Task 2' },
+              { name: 'Task 3' },
+              {
+                name: 'Task 4',
+                children: [
+                  {
+                    name: 'Subtask 1'
+                  },
+                  {
+                    name: 'Subtask 2'
+                  }
+                ]
               }
             ]
           },
           {
-            name: 'Task 2',
-            value: 2
+            name: '#2',
+            value: 1,
+            children: [
+              { name: 'Task 1' },
+              {
+                name: 'Task 2',
+                children: [
+                  {
+                    name: 'Subtask 1'
+                  },
+                  {
+                    name: 'Subtask 2'
+                  }
+                ]
+              }
+            ]
           },
           {
-            name: 'Task 3',
-            value: 3
+            name: '#3',
+            value: 1,
+            children: [
+              { name: 'Task 1' },
+              {
+                name: 'Task 2',
+                children: [
+                  {
+                    name: 'Subtask 1'
+                  },
+                  {
+                    name: 'Subtask 2'
+                  }
+                ]
+              }
+            ]
           },
           {
-            name: 'Task 4',
-            value: 4
+            name: 'Problem',
+            value: 1,
+            children: [
+              { name: 'Problem 1' },
+              {
+                name: 'Problem 2'
+              }
+            ]
           }
         ]
       }
@@ -70,15 +120,14 @@ export default {
     networkSeries.nodes.template.tooltipText = '{name}'
     networkSeries.nodes.template.fillOpacity = 1
     networkSeries.nodes.template.label.text = '{name}'
-    networkSeries.fontSize = 8
-    networkSeries.minRadius = 30
-    networkSeries.maxRadius = 35
+    networkSeries.fontSize = 10
+    networkSeries.minRadius = 20
+
     networkSeries.maxLevels = 2
+    networkSeries.legendSettings.labelText = '[{stroke}]{name}[/]'
 
     // networkSeries.maxRadius = am4core.percent(1)
-    networkSeries.centerStrength = 1
-
-    networkSeries.manyBodyStrength = -16
+    // networkSeries.centerStrength =
     // networkSeries.nodes.template.label.hideOversized = true
     networkSeries.nodes.template.label.truncate = true
 
@@ -100,18 +149,12 @@ export default {
     icon.width = 60
     icon.height = 60
 
-    const nuxt = this.$nuxt
+    // const nuxt = this.$nuxt
     networkSeries.nodes.template.events.on('hit', function(event) {
-      console.log(nuxt)
+      // eslint-disable-next-line no-console
       console.log(event.target.dataItem)
       // chart.zoomToDataItem(event.target.dataItem, 1.1, true)
     })
   }
 }
 </script>
-<style>
-.hello {
-  width: 100%;
-  height: 800px;
-}
-</style>

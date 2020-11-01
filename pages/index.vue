@@ -1,8 +1,14 @@
 <template>
-  <div class="home">
-    <div class="title">All</div>
-    <div class="projects">
-      <AppCard :key="item" v-for="item in 5" />
-    </div>
+  <div class="home-page">
+    <AboutUs />
+    <Creativity />
   </div>
 </template>
+
+<script>
+import AboutUs from '@/components/AboutUs'
+import Creativity from '@/components/Creativy'
+export default {
+  components: { Creativity, AboutUs }
+}
+</script>
